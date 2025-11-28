@@ -14,7 +14,11 @@ const Grid = ({ positionString }) => {
     y = pos.y;
     direction = pos.direction;
   } catch (err) {
-    return <Box color="red">{err.message}</Box>;
+    return (
+      <Box color="red" fontWeight="bold" mt={2}>
+        {err.message}
+      </Box>
+    );
   }
 
   const cells = Array.from({ length: 5 }, (_, row) =>
@@ -25,8 +29,21 @@ const Grid = ({ positionString }) => {
   );
 
   return (
-    <Box display="grid" gridTemplateColumns="repeat(5, 60px)" gap="0">
-      {cells.flat()}
+    <Box
+      display="grid"
+      gridTemplateColumns="repeat(5, 70px)"
+      gridTemplateRows="repeat(5, 70px)"
+      gap={1.5}
+      sx={{
+        mt: 3,
+        justifyContent: "center",
+        backgroundColor: "#e8f0fe", // bright grid background
+        p: 2,
+        borderRadius: 3,
+        boxShadow: "0px 4px 15px rgba(0,0,0,0.1)"
+      }}
+    >
+      {cells.flat().reverse()} {/* bottom-left is (0,0) */}
     </Box>
   );
 };

@@ -1,5 +1,5 @@
 import React from "react";
-import { Box } from "@mui/material";
+import { Paper } from "@mui/material";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 
 const directionRotation = {
@@ -11,22 +11,34 @@ const directionRotation = {
 
 const GridCell = ({ hasObject, direction }) => {
   return (
-    <Box
+    <Paper
+      elevation={3}
       sx={{
-        width: 60,
-        height: 60,
-        border: "1px solid #ccc",
+        width: 70,
+        height: 70,
         display: "flex",
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
+        backgroundColor: "#f0f4ff", // bright background
+        borderRadius: 2,
+        border: "1px solid #1976d2", // professional border
+        transition: "background-color 0.3s",
+        "&:hover": {
+          backgroundColor: "#e3f2fd"
+        }
       }}
     >
       {hasObject && (
         <ArrowUpwardIcon
-          sx={{ transform: `rotate(${directionRotation[direction]}deg)` }}
+          sx={{
+            fontSize: 32,
+            color: "#1976d2",
+            transform: `rotate(${directionRotation[direction]}deg)`,
+            transition: "transform 0.3s"
+          }}
         />
       )}
-    </Box>
+    </Paper>
   );
 };
 
