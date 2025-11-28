@@ -30,7 +30,8 @@ const GridCell = ({ hasObject, direction }) => {
     >
       {hasObject && (
         <ArrowUpwardIcon
-          sx={{
+            data-testid="grid-arrow"
+            sx={{
             fontSize: 32,
             color: "#1976d2",
             transform: `rotate(${directionRotation[direction]}deg)`,
