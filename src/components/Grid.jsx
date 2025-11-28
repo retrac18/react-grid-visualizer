@@ -14,7 +14,6 @@ const Grid = ({ positionString }) => {
     y = pos.y;
     direction = pos.direction;
   } catch (err) {
-    // Professional error using Material UI Alert
     return (
       <Box mt={2} display="flex" justifyContent="center">
         <Alert severity="error" variant="outlined" sx={{ maxWidth: 400 }}>
@@ -24,18 +23,24 @@ const Grid = ({ positionString }) => {
     );
   }
 
-  const cells = Array.from({ length: 5 }, (_, row) =>
-    Array.from({ length: 5 }, (_, col) => {
-      const hasObject = x === col && y === row;
-      return <GridCell key={`${row}-${col}`} hasObject={hasObject} direction={direction} />;
-    })
-  );
+  const gridSize = 5;
+  const cells = [];
+
+  // Loop through rows from top (gridSize-1) to bottom (0)
+  for (let row = gridSize - 1; row >= 0; row--) {
+    for (let col = 0; col < gridSize; col++) {
+      const hasObject = x === col && y === row; // now y=0 is bottom row
+      cells.push(
+        <GridCell key={`${row}-${col}`} hasObject={hasObject} direction={direction} />
+      );
+    }
+  }
 
   return (
     <Box
       display="grid"
-      gridTemplateColumns="repeat(5, 70px)"
-      gridTemplateRows="repeat(5, 70px)"
+      gridTemplateColumns={`repeat(${gridSize}, 70px)`}
+      gridTemplateRows={`repeat(${gridSize}, 70px)`}
       gap={1.5}
       sx={{
         mt: 3,
@@ -46,7 +51,7 @@ const Grid = ({ positionString }) => {
         boxShadow: "0px 4px 15px rgba(0,0,0,0.1)"
       }}
     >
-      {cells.flat().reverse()}
+      {cells}
     </Box>
   );
 };

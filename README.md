@@ -1,6 +1,6 @@
 # React 5x5 Grid Visualizer
 
-A simple React application to visualize the placement of an object on a **5x5 grid** based on user input, built with **Material UI** and documented with **Storybook**.
+A React application to visualize the placement of an object on a **5x5 grid** based on user input, built with **Material UI** and documented with **Storybook**.
 
 ---
 
@@ -21,7 +21,7 @@ Examples:
 * `"0,0 SOUTH"`
 * `"4,4 WEST"`
 
-The object will appear on the grid with an arrow indicating the direction. Invalid input will display a professional error alert.
+The object will appear on the grid with an arrow indicating the direction. Invalid input will display an error alert.
 
 ---
 
@@ -67,7 +67,7 @@ npm start
 npm run dev
 ```
 
-The app will open at [http://localhost:3000](http://localhost:3000)
+The app will open at [http://localhost:5173/](http://localhost:5173/)
 
 ### Run Storybook
 
@@ -88,7 +88,7 @@ npm test
 1. Enter a position string in the input field: `"x,y DIRECTION"`.
 2. Click the **Place** button.
 3. See the object appear on the grid with the correct orientation.
-4. Invalid input shows a professional error alert.
+4. Invalid input shows an error alert.
 
 ---
 

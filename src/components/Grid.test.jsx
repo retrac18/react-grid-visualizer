@@ -3,7 +3,6 @@ import { render, screen } from "@testing-library/react";
 import '@testing-library/jest-dom';
 import Grid from "./Grid";
 
-
 describe("Grid Component", () => {
   test("renders grid with object at correct position", () => {
     render(<Grid positionString="1,1 NORTH" />);
@@ -29,12 +28,24 @@ describe("Grid Component", () => {
   test("renders object at bottom-left corner correctly", () => {
     render(<Grid positionString="0,0 SOUTH" />);
     const arrow = screen.getByTestId("grid-arrow");
-    expect(arrow).toHaveStyle("transform: rotate(180deg)");
+    expect(arrow).toHaveStyle("transform: rotate(180deg)"); // SOUTH
   });
 
   test("renders object at top-right corner correctly", () => {
     render(<Grid positionString="4,4 WEST" />);
     const arrow = screen.getByTestId("grid-arrow");
-    expect(arrow).toHaveStyle("transform: rotate(270deg)");
+    expect(arrow).toHaveStyle("transform: rotate(270deg)"); // WEST
+  });
+
+  test("renders object at top-left corner correctly", () => {
+    render(<Grid positionString="0,4 NORTH" />);
+    const arrow = screen.getByTestId("grid-arrow");
+    expect(arrow).toHaveStyle("transform: rotate(0deg)"); // NORTH
+  });
+
+  test("renders object at bottom-right corner correctly", () => {
+    render(<Grid positionString="4,0 EAST" />);
+    const arrow = screen.getByTestId("grid-arrow");
+    expect(arrow).toHaveStyle("transform: rotate(90deg)"); // EAST
   });
 });
