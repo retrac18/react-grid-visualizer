@@ -1,5 +1,5 @@
 import React from "react";
-import { Box } from "@mui/material";
+import { Box, Alert } from "@mui/material";
 import GridCell from "./GridCell";
 import { parsePosition } from "./utils/parsePosition";
 
@@ -14,9 +14,12 @@ const Grid = ({ positionString }) => {
     y = pos.y;
     direction = pos.direction;
   } catch (err) {
+    // Professional error using Material UI Alert
     return (
-      <Box color="red" fontWeight="bold" mt={2}>
-        {err.message}
+      <Box mt={2} display="flex" justifyContent="center">
+        <Alert severity="error" variant="outlined" sx={{ maxWidth: 400 }}>
+          {err.message}
+        </Alert>
       </Box>
     );
   }
@@ -37,13 +40,13 @@ const Grid = ({ positionString }) => {
       sx={{
         mt: 3,
         justifyContent: "center",
-        backgroundColor: "#e8f0fe", // bright grid background
+        backgroundColor: "#e8f0fe",
         p: 2,
         borderRadius: 3,
         boxShadow: "0px 4px 15px rgba(0,0,0,0.1)"
       }}
     >
-      {cells.flat().reverse()} {/* bottom-left is (0,0) */}
+      {cells.flat().reverse()}
     </Box>
   );
 };
