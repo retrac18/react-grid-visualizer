@@ -1,7 +1,7 @@
 import React from "react";
 import { Box } from "@mui/material";
 import GridCell from "./GridCell";
-import { parsePosition } from "../utils/parsePosition";
+import { parsePosition } from "./utils/parsePosition";
 
 const Grid = ({ positionString }) => {
   let x = -1,
