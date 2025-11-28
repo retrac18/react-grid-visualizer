@@ -1,16 +1,97 @@
-# React + Vite
+# React 5x5 Grid Visualizer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple React application to visualize the placement of an object on a **5x5 grid** based on user input, built with **Material UI** and documented with **Storybook**.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Demo
 
-## React Compiler
+* Place an object on the grid by entering a string in the format:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```
+x,y DIRECTION
+```
 
-## Expanding the ESLint configuration
+* `x` and `y`: integers from 0 to 4 (0,0 is bottom-left).
+* `DIRECTION`: `NORTH`, `EAST`, `SOUTH`, or `WEST`.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Examples:
+
+* `"1,1 NORTH"`
+* `"0,0 SOUTH"`
+* `"4,4 WEST"`
+
+The object will appear on the grid with an arrow indicating the direction. Invalid input will display a professional error alert.
+
+---
+
+## Features
+
+* **Interactive 5x5 Grid**: Shows object placement based on input string.
+* **Material UI Styling**: Bright, professional grid with hover effects.
+* **Error Handling**: Graceful alerts for invalid input.
+* **Storybook Integration**: Component stories including edge cases.
+* **Unit Testing**: Jest and React Testing Library tests for parsing and grid placement.
+* **Centered Layout**: Grid and input panel centered in the browser.
+
+---
+
+## Technologies
+
+* React (Create React App)
+* Material UI (`@mui/material`, `@mui/icons-material`)
+* Storybook
+* Jest + React Testing Library
+
+---
+
+## Getting Started
+
+### Clone the repo
+
+```bash
+git clone <your-repo-url>
+cd react-grid-visualizer
+```
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Run the app
+
+```bash
+npm start
+npm run dev
+```
+
+The app will open at [http://localhost:3000](http://localhost:3000)
+
+### Run Storybook
+
+```bash
+npm run storybook
+```
+
+### Run Unit Tests
+
+```bash
+npm test
+```
+
+---
+
+## Usage
+
+1. Enter a position string in the input field: `"x,y DIRECTION"`.
+2. Click the **Place** button.
+3. See the object appear on the grid with the correct orientation.
+4. Invalid input shows a professional error alert.
+
+---
+
+## License
+
+MIT License © 2025
