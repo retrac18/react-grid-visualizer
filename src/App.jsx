@@ -11,12 +11,34 @@ function App() {
   };
 
   return (
-    <Container maxWidth="sm">
-      <Paper elevation={5} sx={{ p: 4, mt: 5, borderRadius: 3, backgroundColor: "#ffffff" }}>
-        <Typography variant="h5" fontWeight="bold" mb={3} textAlign="center">
+    <Box
+      sx={{
+        width: "100vw",
+        height: "100vh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "#f5f5f5", // subtle background
+        p: 2,
+      }}
+    >
+      <Paper
+        elevation={5}
+        sx={{
+          p: 4,
+          borderRadius: 3,
+          backgroundColor: "#ffffff",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: 3,
+        }}
+      >
+        <Typography variant="h5" fontWeight="bold" textAlign="center">
           Grid Visualizer
         </Typography>
-        <Box display="flex" mb={3} gap={2}>
+
+        <Box display="flex" gap={2} width="100%">
           <TextField
             fullWidth
             label="Enter Position (x,y DIRECTION)"
@@ -28,9 +50,10 @@ function App() {
             Place
           </Button>
         </Box>
+
         <Grid positionString={position} />
       </Paper>
-    </Container>
+    </Box>
   );
 }
 
